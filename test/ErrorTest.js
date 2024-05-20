@@ -16,11 +16,13 @@ describe('ErrorTest', function () {
         await driver.get('https://www.21vek.by/netuda/');
         await homePage.waitSeconds(2);
         const errorNumber = await homePage.getErrorNumber();
+        console.log('Код полученной ошибки: '+errorNumber);
         assert.strictEqual(errorNumber, '404');
         await homePage.waitSeconds(2);
         await driver.get('https://www.21vek.by/mobile/compe213/');
         await homePage.waitSeconds(2);
         const errorHeading = await homePage.getErrorHeading();
+        console.log('Заголовок ошибки: '+errorHeading);
         assert.strictEqual(errorHeading, 'Страница не найдена');
     });
 
